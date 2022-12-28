@@ -22,24 +22,26 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
       - name: Install openapi-generator-cli
-        run: npm install @openapitools/openapi-generator-cli -g
+        run:  npm install @openapitools/openapi-generator-cli -g
       - name: Create Branch
-        run: git checkout -b 'feature/sync-repo-${{github.run_id}}'
+        run:  git checkout -b 'feature/sync-repo'
       - name: Install Dependencies
-        run: npm i
+        run:  npm i
       - name: Get Api Spec
-        run: wget ${{ github.event.inputs.api_spec_url }} -O api-spec.json
+        run:  wget ${{ github.event.inputs.api_spec_url }} -O api-spec.json
       - name: Generate Client
-        run: openapi-generator-cli generate -i ./api-spec.json -g typescript-axios -o ./src
+        run:  openapi-generator-cli generate -i ./api-spec.json -g typescript-axios -o ./src
+      - name: Remove Redundant Files
+        run:  rm -R  src/.openapi-generator && rm -R src/.openapi-generator-ignore
       - name: git status
-        run: git status
+        run:  git status
       - name: git add
-        run: git add src/**
+        run:  git add src/**
       - name: git commit
-        run: git commit -m "cmt"
+        run:  git commit -m "Repo Sync"
       - name: git pusg
-        run: git push origin feature/sync-repo
+        run:  git push origin feature/sync-repo
       - name: create pull request
-        run: gh pr create -B main -H 'feature/sync-repo-${{github.run_id}}' --title 'Repo Sync' --body 'Created by Github action'
+        run:  gh pr create -B main -H 'feature/sync-repo' --title 'Repo Sync' --body 'Created by Github action'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
