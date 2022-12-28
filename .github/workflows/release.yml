@@ -29,13 +29,13 @@ jobs:
           node-version: "14.x"
           registry-url: https://registry.npmjs.org
 
+      - name: NPM Install
+        run: npm install
+
       - name: Thundra Registry
         run: |
           npm config set registry ${{ secrets.THUNDRA_REGISTRY }}
           npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
-
-      - name: NPM Install
-        run: npm install
 
       - name: NPM Build
         run: npm run clean-build:all
