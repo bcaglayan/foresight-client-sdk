@@ -4,9 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "clean-build:all": "",
     "clean": "rimraf dist coverage tsconfig.tsbuildinfo",
-    "prebuild": "npm run build:types",
+    "prebuild": "npm run clean && npm run build:types",
     "build": "node scripts/build.js",
     "build:tsc": "tsc",
     "build:types": "tsc --emitDeclarationOnly --declaration",

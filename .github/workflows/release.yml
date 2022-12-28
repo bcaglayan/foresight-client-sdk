@@ -38,7 +38,7 @@ jobs:
           npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
 
       - name: NPM Build
-        run: npm run clean-build:all
+        run: npm run build
 
       - name: NPM Publish
         run: npm run release
