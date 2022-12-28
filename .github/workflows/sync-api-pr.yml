@@ -29,10 +29,12 @@ jobs:
         run:  git checkout -b 'feature/sync-repo'
       - name: Get Api Spec
         run:  wget ${{ github.event.inputs.api_spec_url }} -O api-spec.json
+      - name: Validate Api Spec
+        run: openapi-generator-cli validate -i ./api-spec.json
       - name: Generate Client
         run:  openapi-generator-cli generate -i ./api-spec.json -g typescript-axios -o ./src
-      - name: Remove Redundant Files
-        run:  rm -R  src/.openapi-generator && rm -R src/.openapi-generator-ignore
+      - name: Clear Old Files
+        run:  find ./src -type f ! -name "*.openapi-generator-ignore" -exec rm {} \;
       - name: git status
         run:  git status
       - name: git add
