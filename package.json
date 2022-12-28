@@ -9,7 +9,7 @@
     "build": "node scripts/build.js",
     "build:tsc": "tsc",
     "build:types": "tsc --emitDeclarationOnly --declaration",
-    "release-patch": "release-it ${RELEASE_SCALE} --ci --git.commit --git.push --git.tag --git.tagName='v${version}' --github.release --no-git.requireCleanWorkingDir --no-git.requireUpstream --npm.publish --npm.skipChecks"
+    "release": "release-it ${RELEASE_SCALE} --ci --git.commit --git.push --git.tag --git.tagName='v${version}' --github.release --no-git.requireCleanWorkingDir --no-git.requireUpstream --npm.publish --npm.skipChecks"
   },
   "repository": {
     "type": "git",
