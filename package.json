@@ -11,6 +11,9 @@
     "build:types": "tsc --emitDeclarationOnly --declaration",
     "release": "release-it ${RELEASE_SCALE} --ci --git.commit --git.push --git.tag --git.tagName='v${version}' --github.release --no-git.requireCleanWorkingDir --no-git.requireUpstream --npm.publish --npm.skipChecks"
   },
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bcaglayan/foresight-client-sdk.git"
