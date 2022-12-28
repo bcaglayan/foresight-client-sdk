@@ -1,0 +1,31 @@
+{
+  "name": "foresight-client-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "npm run build:types",
+    "build": "node scripts/build.js",
+    "build:tsc": "tsc",
+    "build:types": "tsc --emitDeclarationOnly --declaration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcaglayan/foresight-client-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bcaglayan/foresight-client-sdk/issues"
+  },
+  "homepage": "https://github.com/bcaglayan/foresight-client-sdk#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4",
+    "esbuild": "^0.14.54"
+  },
+  "dependencies": {
+    "axios": "^1.2.1"
+  }
+}
