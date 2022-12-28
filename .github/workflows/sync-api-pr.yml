@@ -42,6 +42,6 @@ jobs:
       - name: git pusg
         run:  git push origin feature/sync-repo
       - name: create pull request
-        run:  gh pr create -B main -H 'feature/sync-repo' --title 'Repo Sync' --body 'Created by Github action'
+        run:  gh pr create -B master -H 'feature/sync-repo' --title 'Repo Sync' --body 'Created by Github action'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
