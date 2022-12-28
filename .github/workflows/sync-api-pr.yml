@@ -31,10 +31,10 @@ jobs:
         run:  wget ${{ github.event.inputs.api_spec_url }} -O api-spec.json
       - name: Validate Api Spec
         run: openapi-generator-cli validate -i ./api-spec.json
-      - name: Generate Client
-        run:  openapi-generator-cli generate -i ./api-spec.json -g typescript-axios -o ./src
       - name: Clear Old Files
         run:  find ./src -type f ! -name "*.openapi-generator-ignore" -exec rm {} \;
+      - name: Generate Client
+        run:  openapi-generator-cli generate -i ./api-spec.json -g typescript-axios -o ./src
       - name: git status
         run:  git status
       - name: git add
