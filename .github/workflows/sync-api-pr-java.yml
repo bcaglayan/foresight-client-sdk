@@ -1,4 +1,4 @@
-name: sync-api-pr
+name: sync-api-pr-java
 
 on:
   workflow_dispatch:
