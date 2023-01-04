@@ -36,6 +36,7 @@ jobs:
       #- name: Validate Api Spec
       #  run: openapi-generator-cli validate -i ./api-spec.json
       - name: Clear Old Files
+        continue-on-error: true
         run:  rm -R ./src/main/java/com/runforesight/foresight/sdk
       - name: Generate Client
         run:  openapi-generator-cli generate -i ./input/doc.json -g java -o ./generated --additional-properties=sourceFolder=src/main/java,library=resteasy,artifactId=foresight-java-client,groupId=com.runforesight,modelPackage=com.runforesight.foresight.sdk.client,apiPackage=com.runforesight.foresight.sdk.client
